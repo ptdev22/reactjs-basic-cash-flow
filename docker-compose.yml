@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+  reactjs-basic-cash-flow-app:
+    image: reactjs-basic-cash-flow-app
+    # build: .
+    container_name: reactjs-basic-cash-flow-app
+    networks:
+      - internal_network
+    ports:
+      - 80:80
+
+    volumes:
+      - ./views:/app/views/
+      - ./public:/app/public/
+
+networks:
+  internal_network:
+    driver: bridge
+
+# build images files 
+# docker build -t reactjs-basic-cash-flow-app .
+# docker-compose up
+
+# docker build --no-cache -t reactjs-basic-cash-flow-app .
